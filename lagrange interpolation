@@ -1,0 +1,16 @@
+# Progarm for Lagrange Interpolation in python 
+import math 
+# Input section 
+x=[];y=[]; 
+n=int(input("Enter number of entries: " )) 
+x=list(map(float,input("Enter x values: ").split())) 
+y=list(map(float,input("Enter y values: ").split())) 
+xr=float(input("Enter xr at yr required: " )) 
+yr=0 
+for i in range(0, n): 
+    prod=1.0 
+    for j in range(0, n): 
+        if j!=i: 
+            prod=prod*(xr-x[j])/(x[i]-x[j]) 
+    yr=yr+prod*y[i] 
+print("At xr = %.3f, yr = %.3f"%(xr,yr))
