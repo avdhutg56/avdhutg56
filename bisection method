@@ -1,0 +1,44 @@
+#program for Bisecton Method 
+#Function Definition
+import math
+func=input('Enter given function: ')
+def f(x):
+  y=eval(func)
+  return(y)
+# Main Program
+# Input Section
+a=float(input('Enter initial value of a:'))
+b=float(input('Enter initial value of b:'))
+n=int(input('Enter no of iterations n:'))
+# Process and output section
+if f(a)*f(b)<0:
+ print('root lies in the interval [a, b]=',a,b)
+ print('The iterative values of root c is')
+ for k in range(0,n):
+   c=(a+b)/2;
+   if f(a)*f(c)<0:
+    b=c;
+   else: 
+    a=c;
+   print("c= %.4f"%c)
+elif f(a)*f(b)==0:
+ print('root is anyone outof initial guess')
+else:
+ print('No lies in the interval [a, b]=',a,b)
+Result:
+Enter given function math.cos(x)-x*math.exp(x)
+Enter initial value of a:0
+Enter initial value of b:1
+Enter no of iterations n:10
+root lies in the interval [a, b]= 0.0 1.0
+The iterative values of root c is
+c=0.5000
+c=0.7500
+c=0.6250
+c=0.5625
+c=0.5312
+c=0.5156
+c=0.5234
+c=0.5195
+c=0.5176
+c=0.5186
