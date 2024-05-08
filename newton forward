@@ -1,0 +1,40 @@
+# Progarm for Newton Forward Interpolation
+import math
+# Input section
+x=[];y=[]; d1y=[];d2y=[];d3y=[];d4y=[];d5y=[];
+n=int(input("Enter number of entries: " ))
+x=list(map(float,input("Enter x data points: ").split()))
+y=list(map(float,input("Enter y data points: ").split()))
+xr=float(input("Enter xr required: " ))
+h=x[1]-x[0]
+u=(xr-x[0])/h;
+# Difference table calculation
+for i in range(1,n):
+ d1y.append(y[i]-y[i-1])
+for i in range(1,n-1):
+ d2y.append(d1y[i]-d1y[i-1])
+for i in range(1,n-2):
+ d3y.append(d2y[i]-d2y[i-1])
+for i in range(1,n-3):
+ d4y.append(d3y[i]-d3y[i-1])
+for i in range(1,n-4):
+ d5y.append(d4y[i]-d4y[i-1])
+print(y[0], d1y[0] ,d2y[0], d3y[0], d4y[0] , d5y[0])
+# Implementation of Newton Forward Formula
+yr=(y[0])+(u*d1y[0])+((1/2)*u*(u-1)*d2y[0])+((1/6)*(u)*(u-1)*(u-
+2)*d3y[0])+((1/24)*(u)*(u-1)*(u-2)*(u-3)*d4y[0])+((1/120)*(u)*(u-1)*(u-2)*(u-3)*(u-
+4)*d5y[0])
+print("\nNewton Forward Interpolation Result")
+print("Required Solution is")
+print("At x = %.3f, y = %.3f"%(xr,yr))
+
+Result:
+Enter number of entries: 6
+Enter x data points: 0 4 8 12 16 20
+Enter y data points: 900 1200 1450 1700 1300 1000
+Enter xr required: 3
+900.0 300.0 -50.0 50.0 -700.0 2100.0
+Newton Forward Interpolation Result
+Required Solution is
+At x = 3.000, y = 1177.014
+
