@@ -1,0 +1,27 @@
+#program for birge vita method 
+a=[];b=[];
+n=int(input('Enter order of equation'))
+a=list(map(float,(input("Enter coefficients:").split())))
+p=list(map(float,(input('Enter initial guess:').split())))
+it=int(input('Enter number of iterations required'))
+for k in range (0,it):
+    b=[];
+    c=[];
+    b.append(a[0])
+    c.append(b[0])
+    j=1 
+    for j in range(1,n+1):
+        b.append(a[j]+p[k]*b[j-1])
+        c.append(b[j]+p[k]*c[j-1]) 
+    p.append(p[k]-b[n]/c[n-1])
+    print("Root of euquation at iteration",k+1,"is%.4f"%p[k+1])
+Result: 
+Enter order of equation:3
+Enter coefficients:1 -1 -1 1
+Enter initial guess:0.5
+Enter number of iterations required:4
+Root of equation at iteration 1 is 0.8000
+Root of equation at iteration 2 is 0.9059
+Root of equation at iteration 3 is 0.9541
+Root of equation at iteration 4 is 0.9773
+
